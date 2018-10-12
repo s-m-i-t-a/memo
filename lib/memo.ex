@@ -4,7 +4,7 @@ defmodule Memo do
   @spec memoize(module(), atom(), [any()], keyword()) :: any()
   def memoize(module, func, args, opts \\ [])
       when is_atom(module) and is_atom(func) and is_list(args) do
-    {cache, _ttl} = parse(opts)
+    {cache, ttl} = parse(opts)
     key = {module, func, args}
 
     case cache.get(key) do
@@ -13,7 +13,7 @@ defmodule Memo do
 
       _ ->
         value = apply(module, func, args)
-        cache.set(key, value)
+        cache.set(key, value, ttl)
         value
     end
   end
