@@ -9,6 +9,7 @@ defmodule Memo.MixProject do
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
+      description: "A memoization library",
       deps: deps(),
       package: package(),
       test_coverage: [tool: ExCoveralls],
