@@ -5,7 +5,7 @@ defmodule Memo.MixProject do
     [
       app: :memo,
       dialyzer: dialyzer_base() |> dialyzer_ptl(System.get_env("SEMAPHORE_CACHE_DIR")),
-      version: "0.1.0",
+      version: "1.0.0",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
