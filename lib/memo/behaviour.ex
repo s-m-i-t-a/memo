@@ -11,5 +11,5 @@ defmodule Memo.Behaviour do
   @doc """
   Set `value` with `key` and `ttl` to cache.
   """
-  @callback set(any(), any(), non_neg_integer()) :: Result.t(any(), String.t())
+  @callback set(any(), any(), non_neg_integer()) :: Result.t(String.t(), any())
 end
