@@ -1,6 +1,23 @@
 defmodule Memo do
-  @moduledoc false
+  @moduledoc """
+  A memoization library.
+  """
 
+  @doc """
+  Function memoize return `value` from `module`, `function` and `args`,
+
+  ## Options
+
+  * `:cache` - Cache module implemented `Memo.Behaviour` eg. `Memo.BaseCache`
+  * `:ttl` - time to live in seconds
+
+  ## Examples
+
+  Before use `Memo.BaseCache` you must start it with `Memo.BaseCache.start_link/1`.
+
+      iex> Memo.memoize(Kernel, :div, [5, 2], cache: Memo.BaseCache)
+      2
+  """
   @spec memoize(module(), atom(), [any()], keyword()) :: any()
   def memoize(module, func, args, opts \\ [])
       when is_atom(module) and is_atom(func) and is_list(args) do
