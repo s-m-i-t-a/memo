@@ -6,7 +6,7 @@ defmodule Memo.Behaviour do
   @doc """
   Get value by `key` from cache.
   """
-  @callback get(any()) :: any()
+  @callback get(any()) :: Result.t(String.t(), any())
 
   @doc """
   Set `value` with `key` and `ttl` to cache.
